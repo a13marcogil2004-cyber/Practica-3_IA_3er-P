@@ -15,3 +15,27 @@ def dijkstra(grafo, inicio):
 
     cola = [(0, inicio)]
     visitados = set()
+
+    print(f"\nNodo inicial: {inicio}\n")
+
+    paso = 1
+
+    while cola:
+        distancia_actual, nodo_actual = heapq.heappop(cola)
+
+        if nodo_actual in visitados:
+            continue
+
+        visitados.add(nodo_actual)
+
+        print(f"PASO {paso}")
+        print(f"Nodo actual: {nodo_actual}")
+        print("Distancias actuales:")
+
+        for nodo, distancia in distancias.items():
+            print(f"{nodo}: {distancia}")
+
+        print("-" * 30)
+
+        paso += 1
+
