@@ -8,3 +8,10 @@ grafo = {
     'E': {'C': 10, 'D': 2, 'F': 3},
     'F': {'D': 6, 'E': 3}
 }
+
+def dijkstra(grafo, inicio):
+    distancias = {nodo: float('inf') for nodo in grafo}
+    distancias[inicio] = 0
+
+    cola = [(0, inicio)]
+    visitados = set()
