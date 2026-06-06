@@ -39,3 +39,17 @@ def dijkstra(grafo, inicio):
 
         paso += 1
 
+        for vecino, peso in grafo[nodo_actual].items():
+            nueva_distancia = distancia_actual + peso
+
+            if nueva_distancia < distancias[vecino]:
+                distancias[vecino] = nueva_distancia
+                heapq.heappush(cola, (nueva_distancia, vecino))
+
+    return distancias
+
+resultado = dijkstra(grafo, 'A')
+
+print("\nDISTANCIAS FINALES")
+for nodo, distancia in resultado.items():
+    print(f"A -> {nodo} = {distancia}")
